@@ -40,7 +40,11 @@ const glob = __importStar(__nccwpck_require__(90));
 const path = __importStar(__nccwpck_require__(622));
 function modules(start, options) {
     return __awaiter(this, void 0, void 0, function* () {
-        const globber = yield glob.create([path.join(start, '**', '*.tf'), '!**/.terraform/**/*'].join('\n'), options);
+        const globber = yield glob.create([
+            path.join(start, '**', '*.tf'),
+            path.join(start, '**', '*.tf.json'),
+            '!**/.terraform/**/*'
+        ].join('\n'), options);
         const files = yield globber.glob();
         const mods = new Set(files.map(file => path.dirname(file)).sort((a, b) => (a > b ? 1 : -1)));
         return [...mods].map(dir => path.relative(options.cwd, dir));
