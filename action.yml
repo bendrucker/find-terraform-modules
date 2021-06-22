@@ -3,9 +3,13 @@ description: 'Provide a description here'
 author: 'Your name or organization here'
 inputs:
   working-directory: # change this
-    required: true
+    required: false
     description: 'The working directory where Terraform modules will be matched'
     default: '.'
+  follow-symbolic-links:
+    required: false
+    description: 'Indicates whether to follow symbolic links'
+    default: 'true'
 runs:
   using: 'node12'
   main: 'dist/index.js'

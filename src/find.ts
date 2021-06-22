@@ -1,9 +1,13 @@
 import * as glob from '@actions/glob'
 import * as path from 'path'
 
-export async function modules(wd: string): Promise<string[]> {
+export async function modules(
+  wd: string,
+  options?: Options
+): Promise<string[]> {
   const globber = await glob.create(
-    [path.join(wd, '**', '*.tf'), '!**/.terraform/**/*'].join('\n')
+    [path.join(wd, '**', '*.tf'), '!**/.terraform/**/*'].join('\n'),
+    options
   )
   const files = await globber.glob()
 
@@ -12,4 +16,8 @@ export async function modules(wd: string): Promise<string[]> {
   )
 
   return [...mods]
+}
+
+export interface Options {
+  followSymbolicLinks: boolean
 }
