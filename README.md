@@ -34,3 +34,9 @@ jobs:
       - run: terraform init
       - run: terraform validate -chdir ${{ matrix.module }}
 ```
+
+## Releasing
+
+```sh
+npm version $inc && git push --follow-tags
+```
