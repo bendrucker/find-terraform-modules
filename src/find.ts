@@ -15,7 +15,7 @@ export async function modules(
     files.map(file => path.dirname(file)).sort((a, b) => (a > b ? 1 : -1))
   )
 
-  return [...mods]
+  return [...mods].map(dir => path.relative(process.cwd(), dir))
 }
 
 export interface Options {

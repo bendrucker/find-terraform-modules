@@ -3,7 +3,7 @@ import * as path from 'path'
 
 test('finds modules', async () => {
   const expected = ['a', 'b', 'c'].map(dir =>
-    path.resolve(__dirname, '../fixtures/basic', dir)
+    path.join('fixtures/basic', dir)
   )
   expect(
     await find.modules(path.resolve(__dirname, '../fixtures/basic'))
@@ -11,7 +11,7 @@ test('finds modules', async () => {
 })
 
 test('excludes .terraform', async () => {
-  const expected = [path.resolve(__dirname, '../fixtures/dot-terraform/a')]
+  const expected = ['fixtures/dot-terraform/a']
   expect(
     await find.modules(path.resolve(__dirname, '../fixtures/dot-terraform'))
   ).toStrictEqual(expected)
