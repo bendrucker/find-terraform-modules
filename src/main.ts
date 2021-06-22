@@ -7,6 +7,7 @@ async function run(): Promise<void> {
     core.setOutput(
       'modules',
       await find.modules(wd, {
+        cwd: process.cwd(),
         followSymbolicLinks:
           core.getInput('follow-symbolic-links').toUpperCase() !== 'FALSE'
       })

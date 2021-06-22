@@ -6,13 +6,13 @@ test('finds modules', async () => {
     path.join('fixtures/basic', dir)
   )
   expect(
-    await find.modules(path.resolve(__dirname, '../fixtures/basic'))
+    await find.modules('fixtures/basic', {cwd: path.resolve(__dirname, '..')})
   ).toStrictEqual(expected)
 })
 
 test('excludes .terraform', async () => {
   const expected = ['fixtures/dot-terraform/a']
   expect(
-    await find.modules(path.resolve(__dirname, '../fixtures/dot-terraform'))
+    await find.modules('fixtures/dot-terraform', {cwd: path.resolve(__dirname, '..')})
   ).toStrictEqual(expected)
 })
