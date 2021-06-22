@@ -1,6 +1,8 @@
 name: Find Terraform Modules
 description: Finds all Terraform module directories in a monorepo. Results can be passed to matrix jobs or looped in other steps.
 author: Ben Drucker <bvdrucker@gmail.com> (https://www.bendrucker.me)
+icon: folder
+color: purple
 inputs:
   working-directory:
     required: false
