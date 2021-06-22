@@ -16,3 +16,12 @@ test('excludes .terraform', async () => {
     })
   ).toStrictEqual(expected)
 })
+
+test('includes .tf.json', async () => {
+  const expected = ['fixtures/json/a']
+  expect(
+    await find.modules('fixtures/json', {
+      cwd: path.resolve(__dirname, '..')
+    })
+  ).toStrictEqual(expected)
+})

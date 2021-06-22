@@ -6,7 +6,11 @@ export async function modules(
   options: Options
 ): Promise<string[]> {
   const globber = await glob.create(
-    [path.join(start, '**', '*.tf'), '!**/.terraform/**/*'].join('\n'),
+    [
+      path.join(start, '**', '*.tf'),
+      path.join(start, '**', '*.tf.json'),
+      '!**/.terraform/**/*'
+    ].join('\n'),
     options
   )
   const files = await globber.glob()
