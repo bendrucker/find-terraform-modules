@@ -22,6 +22,6 @@ jobs:
       - id: modules
         uses: ./
         with:
-          working-directory: ./fixtures
+          working-directory: ./fixtures/basic
       - run: |
           [ "${{ toJSON(steps.modules.outputs.modules) }}" = '["fixtures/basic/a","fixtures/basic/b","fixtures/basic/c"]' ]
