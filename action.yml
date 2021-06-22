@@ -1,8 +1,8 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: Find Terraform Modules
+description: Finds all Terraform module directories in a monorepo. Results can be passed to matrix jobs or looped in other steps.
+author: Ben Drucker <bvdrucker@gmail.com> (https://www.bendrucker.me)
 inputs:
-  working-directory: # change this
+  working-directory:
     required: false
     description: 'The working directory where Terraform modules will be matched'
     default: '.'
