@@ -8,3 +8,5 @@ branches:
     required_status_checks:
       contexts:
         - test
+labels:
+  - name: automerge
