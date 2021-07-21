@@ -12,4 +12,5 @@ branches:
           - test
       restrictions: null
 labels:
+  - name: dependencies
   - name: automerge
