@@ -6,8 +6,10 @@ repository:
 branches:
   - name: main
     protection:
+      required_pull_request_reviews: null
       required_status_checks:
         contexts:
           - test
+      restrictions: null
 labels:
   - name: automerge
