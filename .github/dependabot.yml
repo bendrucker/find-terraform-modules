@@ -5,6 +5,6 @@ updates:
     schedule:
       interval: 'weekly'
     labels:
-      - depencencies
+      - dependencies
       - automerge
 
