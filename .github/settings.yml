@@ -5,8 +5,9 @@ repository:
   topics: terraform, github-actions
 branches:
   - name: main
-    required_status_checks:
-      contexts:
-        - test
+    protection:
+      required_status_checks:
+        contexts:
+          - test
 labels:
   - name: automerge
