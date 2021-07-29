@@ -19,7 +19,9 @@ export async function modules(
     files.map(file => path.dirname(file)).sort((a, b) => (a > b ? 1 : -1))
   )
 
-  return [...mods].map(dir => path.relative(options.cwd, dir))
+  return [...mods]
+    .map(dir => path.relative(options.cwd, dir))
+    .map(dir => dir || '.')
 }
 
 export interface Options {
