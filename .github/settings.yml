@@ -12,7 +12,7 @@ branches:
         contexts:
           - build
           - test
-      enforce_admins: true
+      enforce_admins: false
       restrictions: null
 labels:
   - name: dependencies
