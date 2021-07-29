@@ -8,6 +8,13 @@ test('finds modules', async () => {
   ).toStrictEqual(expected)
 })
 
+test('returns . for cwd', async () => {
+  const cwd = path.resolve(__dirname, '../fixtures/basic/a')
+  expect(
+    await find.modules(cwd, {cwd})
+  ).toStrictEqual(['.'])
+})
+
 test('excludes .terraform', async () => {
   const expected = ['fixtures/dot-terraform/a']
   expect(
