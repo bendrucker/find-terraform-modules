@@ -47,7 +47,9 @@ function modules(start, options) {
         ].join('\n'), options);
         const files = yield globber.glob();
         const mods = new Set(files.map(file => path.dirname(file)).sort((a, b) => (a > b ? 1 : -1)));
-        return [...mods].map(dir => path.relative(options.cwd, dir));
+        return [...mods]
+            .map(dir => path.relative(options.cwd, dir))
+            .map(dir => dir || '.');
     });
 }
 exports.modules = modules;
