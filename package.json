@@ -25,13 +25,13 @@
   "author": "Ben Drucker <bvdrucker@gmail.com> (https://www.bendrucker.me)",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.4.0",
+    "@actions/core": "^1.5.0",
     "@actions/glob": "^0.2.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@types/node": "^16.6.1",
-    "@typescript-eslint/parser": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.3",
     "@vercel/ncc": "^0.29.1",
     "eslint": "^7.32.0",
     "eslint-plugin-github": "^4.2.0",
