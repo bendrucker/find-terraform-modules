@@ -25,7 +25,7 @@
   "author": "Ben Drucker <bvdrucker@gmail.com> (https://www.bendrucker.me)",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.9.0",
+    "@actions/core": "^1.9.1",
     "@actions/glob": "^0.3.0"
   },
   "devDependencies": {
