@@ -7,8 +7,8 @@ export async function modules(
 ): Promise<string[]> {
   const globber = await glob.create(
     [
-      path.join(start, '**', '*.tf'),
-      path.join(start, '**', '*.tf.json'),
+      path.join(start, options.glob || '**', '*.tf'),
+      path.join(start, options.glob || '**', '*.tf.json'),
       '!**/.terraform/**/*'
     ].join('\n'),
     options
@@ -26,5 +26,6 @@ export async function modules(
 
 export interface Options {
   cwd: string
+  glob?: string
   followSymbolicLinks?: boolean
 }
