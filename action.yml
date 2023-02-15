@@ -9,6 +9,10 @@ inputs:
     required: false
     description: 'The working directory where Terraform modules will be matched'
     default: '.'
+  glob:
+    required: false
+    description: 'A glob pattern to match Terraform module directories. By default, all directories are matched at any level (**).'
+    default: '**'
   follow-symbolic-links:
     required: false
     description: 'Indicates whether to follow symbolic links'
