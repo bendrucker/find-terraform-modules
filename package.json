@@ -29,11 +29,11 @@
     "@actions/glob": "^0.4.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.1",
+    "@types/jest": "^29.5.2",
     "@types/node": "^18.14.2",
     "@typescript-eslint/parser": "^5.59.8",
     "@vercel/ncc": "^0.36.1",
-    "eslint": "^8.39.0",
+    "eslint": "^8.41.0",
     "eslint-plugin-github": "^4.7.0",
     "eslint-plugin-jest": "^27.2.1",
     "jest": "^29.5.0",
@@ -41,6 +41,6 @@
     "js-yaml": "^4.1.0",
     "prettier": "2.8.8",
     "ts-jest": "^29.1.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.3"
   }
 }
