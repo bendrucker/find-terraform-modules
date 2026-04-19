@@ -4,10 +4,11 @@
     "module": "Preserve",
     "moduleResolution": "bundler",
     "noEmit": true,
+    "allowImportingTsExtensions": true,
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "types": ["node", "jest"]
+    "types": ["node"]
   },
   "exclude": ["node_modules", "dist"]
 }
