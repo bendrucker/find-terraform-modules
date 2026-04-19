@@ -5425,6 +5425,7 @@ var require_body = __commonJS({
         const boundary = `----formdata-undici-0${`${random(1e11)}`.padStart(11, "0")}`;
         const prefix = `--${boundary}\r
 Content-Disposition: form-data`;
+        /*! formdata-polyfill. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */
         const escape = (str) => str.replace(/\n/g, "%0A").replace(/\r/g, "%0D").replace(/"/g, "%22");
         const normalizeLinefeeds = (value) => value.replace(/\r?\n|\r/g, "\r\n");
         const blobParts = [];
@@ -16825,6 +16826,7 @@ var require_frame = __commonJS({
         buffer2[0] = buffer2[1] = 0;
         buffer2[0] |= 128;
         buffer2[0] = (buffer2[0] & 240) + opcode;
+        /*! ws. MIT License. Einar Otto Stangvik <einaros@gmail.com> */
         buffer2[offset - 4] = maskKey[0];
         buffer2[offset - 3] = maskKey[1];
         buffer2[offset - 2] = maskKey[2];
@@ -20748,5 +20750,3 @@ async function run() {
   }
 }
 run();
-/*! For license information please see index.js.LEGAL.txt */
-//# sourceMappingURL=index.js.map

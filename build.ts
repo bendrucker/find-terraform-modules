@@ -6,8 +6,7 @@ await build({
   platform: 'node',
   format: 'esm',
   target: 'node24',
-  sourcemap: true,
-  legalComments: 'linked',
+  legalComments: 'inline',
   outfile: 'dist/index.js',
   banner: {
     js: "import {createRequire} from 'node:module';\nconst require = createRequire(import.meta.url);"

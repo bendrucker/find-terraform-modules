@@ -10,7 +10,6 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
     "lint": "eslint src/**/*.ts",
     "package": "node build.ts",
     "test": "node --test __tests__/*.test.ts",

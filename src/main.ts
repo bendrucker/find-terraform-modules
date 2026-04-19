@@ -1,19 +1,20 @@
-import {getInput, setOutput, setFailed} from '@actions/core'
-import * as find from './find'
+import * as core from '@actions/core'
+import * as find from './find.ts'
 
 async function run(): Promise<void> {
   try {
-    const wd = getInput('working-directory')
-    setOutput(
+    const wd = core.getInput('working-directory')
+    core.setOutput(
       'modules',
       await find.modules(wd, {
         cwd: process.cwd(),
-        glob: getInput('glob'),
-        followSymbolicLinks: getInput('follow-symbolic-links').toUpperCase() !== 'FALSE'
+        glob: core.getInput('glob'),
+        followSymbolicLinks:
+          core.getInput('follow-symbolic-links').toUpperCase() !== 'FALSE'
       })
     )
   } catch (err) {
-    setFailed(err as Error)
+    core.setFailed(err as Error)
   }
 }
 
