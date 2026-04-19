@@ -18683,6 +18683,9 @@ var require_balanced_match = __commonJS({
       var bi = str.indexOf(b, ai + 1);
       var i = ai;
       if (ai >= 0 && bi > 0) {
+        if (a === b) {
+          return [ai, bi];
+        }
         begs = [];
         left = str.length;
         while (i >= 0 && !result) {
@@ -18750,13 +18753,15 @@ var require_brace_expansion = __commonJS({
       parts.push.apply(parts, p);
       return parts;
     }
-    function expandTop(str) {
+    function expandTop(str, options) {
       if (!str)
         return [];
+      options = options || {};
+      var max = options.max == null ? Infinity : options.max;
       if (str.substr(0, 2) === "{}") {
         str = "\\{\\}" + str.substr(2);
       }
-      return expand(escapeBraces(str), true).map(unescapeBraces);
+      return expand(escapeBraces(str), max, true).map(unescapeBraces);
     }
     function embrace(str) {
       return "{" + str + "}";
@@ -18770,7 +18775,7 @@ var require_brace_expansion = __commonJS({
     function gte(i, y) {
       return i >= y;
     }
-    function expand(str, isTop) {
+    function expand(str, max, isTop) {
       var expansions = [];
       var m = balanced("{", "}", str);
       if (!m || /\$$/.test(m.pre)) return [str];
@@ -18781,7 +18786,7 @@ var require_brace_expansion = __commonJS({
       if (!isSequence && !isOptions) {
         if (m.post.match(/,(?!,).*\}/)) {
           str = m.pre + "{" + m.body + escClose + m.post;
-          return expand(str);
+          return expand(str, max, true);
         }
         return [str];
       }
@@ -18791,9 +18796,9 @@ var require_brace_expansion = __commonJS({
       } else {
         n = parseCommaParts(m.body);
         if (n.length === 1) {
-          n = expand(n[0], false).map(embrace);
+          n = expand(n[0], max, false).map(embrace);
           if (n.length === 1) {
-            var post = m.post.length ? expand(m.post, false) : [""];
+            var post = m.post.length ? expand(m.post, max, false) : [""];
             return post.map(function(p) {
               return m.pre + n[0] + p;
             });
@@ -18801,7 +18806,7 @@ var require_brace_expansion = __commonJS({
         }
       }
       var pre = m.pre;
-      var post = m.post.length ? expand(m.post, false) : [""];
+      var post = m.post.length ? expand(m.post, max, false) : [""];
       var N;
       if (isSequence) {
         var x = numeric(n[0]);
@@ -18839,11 +18844,11 @@ var require_brace_expansion = __commonJS({
         }
       } else {
         N = concatMap(n, function(el) {
-          return expand(el, false);
+          return expand(el, max, false);
         });
       }
       for (var j = 0; j < N.length; j++) {
-        for (var k = 0; k < post.length; k++) {
+        for (var k = 0; k < post.length && expansions.length < max; k++) {
           var expansion = pre + N[j] + post[k];
           if (!isTop || isSequence || expansion)
             expansions.push(expansion);
