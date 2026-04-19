@@ -7,6 +7,12 @@ updates:
     labels:
       - dependencies
       - automerge
+    groups:
+      eslint:
+        patterns:
+          - 'eslint'
+          - '@eslint/*'
+          - 'typescript-eslint'
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
