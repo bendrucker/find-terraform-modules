@@ -10,6 +10,6 @@ await build({
   legalComments: 'linked',
   outfile: 'dist/index.js',
   banner: {
-    js: "import {createRequire} from 'node:module'\nconst require = createRequire(import.meta.url)"
+    js: "import {createRequire} from 'node:module';\nconst require = createRequire(import.meta.url);"
   }
 })
