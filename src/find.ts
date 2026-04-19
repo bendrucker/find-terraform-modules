@@ -1,11 +1,11 @@
-import * as glob from '@actions/glob'
+import {create} from '@actions/glob'
 import * as path from 'path'
 
 export async function modules(
   start: string,
   options: Options
 ): Promise<string[]> {
-  const globber = await glob.create(
+  const globber = await create(
     [
       path.join(start, options.glob || '**', '*.tf'),
       path.join(start, options.glob || '**', '*.tf.json'),
