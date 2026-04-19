@@ -20748,12 +20748,5 @@ async function run() {
   }
 }
 run();
-/*! Bundled license information:
-
-undici/lib/web/fetch/body.js:
-  (*! formdata-polyfill. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> *)
-
-undici/lib/web/websocket/frame.js:
-  (*! ws. MIT License. Einar Otto Stangvik <einaros@gmail.com> *)
-*/
+/*! For license information please see index.js.LEGAL.txt */
 //# sourceMappingURL=index.js.map
