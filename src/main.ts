@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import * as find from './find'
+import * as find from './find.ts'
 
 async function run(): Promise<void> {
   try {
