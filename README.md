@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: find
-        uses: bendrucker/find-terraform-modules@v1
+        uses: bendrucker/find-terraform-modules@v2
         with:
           working-directory: ./modules
     outputs:
